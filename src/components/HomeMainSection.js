@@ -15,7 +15,11 @@ const HomeMainSection = ({ reviews }) => {
     <main>
       <section class="Home-Main-Section" style={{padding:10}}>
         <h2>About Us</h2>
-        <p>Welcome to our online store! We are passionate about providing high-quality products and exceptional customer service. Learn more about our story and commitment to your satisfaction.</p>
+        <p>
+          We want to share good quality, ethically sourced coffee with coffee
+          lovers everywhere. Learn more about our story. Make an account to
+          become a member and earn exclusive rewards!
+        </p>
         <Link to="/products">
           <button>Shop Now</button>
         </Link>
