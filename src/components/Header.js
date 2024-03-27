@@ -11,7 +11,7 @@ const Header = () => {
                 <img src="/images/logo.png" alt="Logo" style ={{width:50}}/>
             </div>
             <div class="company-name">
-                Company Name
+                T&J Coffee Company
             </div>
         </div>
       
