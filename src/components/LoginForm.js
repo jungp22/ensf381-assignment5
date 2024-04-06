@@ -1,5 +1,5 @@
 
-const LoginForm = () => {
+const LoginForm = ({ toggleForm }) => {
   return (
     <div>
         <form name="login" onsubmit="validateForm(event)">
@@ -25,7 +25,7 @@ const LoginForm = () => {
           <button type="submit" class="login-btn">Login</button>
           <p>
             Don't have an account?<br/>
-            <button>Switch to Signup</button>
+            <button type="button" onClick={toggleForm}>Switch to Signup</button>
           </p>
         </form>
     </div>
