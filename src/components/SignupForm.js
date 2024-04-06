@@ -2,9 +2,10 @@
 const SignupForm = ({ toggleForm }) => {
   return (
     <div>
+        <h1>Signup</h1>
         <form name="signup" onsubmit="validateForm(event)">
           <label for="username">Username:</label>
-          <br/>
+          
           <input
             type="text"
             id="username"
@@ -13,7 +14,7 @@ const SignupForm = ({ toggleForm }) => {
             placeholder="Enter your username"
           />
           <br/>
-          <label for="password">Password:</label><br/>
+          <label for="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -22,7 +23,7 @@ const SignupForm = ({ toggleForm }) => {
             placeholder="Enter your password"
           />
           <br/>
-          <label for="password-confirm">Confirm your Password:</label><br/>
+          <label for="password-confirm">Confirm Password:</label>
           <input
             type="password"
             id="confirm-password"
@@ -31,7 +32,7 @@ const SignupForm = ({ toggleForm }) => {
             placeholder="Confirm your password"
           />
           <br/>
-          <label for="email">Email:</label><br/>
+          <label for="email">Email:</label>
           <input
             type="email"
             id="email"
@@ -42,10 +43,8 @@ const SignupForm = ({ toggleForm }) => {
           <br/>
 
           <button type="submit" class="signup-btn">Login</button><br/>
-          <p>
-            Already have an account?<br/>
-            <button type="button" onClick={toggleForm}>Switch to Login</button>
-          </p>
+          <button type="button" onClick={toggleForm}>Switch to Login</button>
+
         </form>
     </div>
   );

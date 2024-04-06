@@ -2,6 +2,7 @@
 const LoginForm = ({ toggleForm }) => {
   return (
     <div>
+        <h1>Login</h1>
         <form name="login" onsubmit="validateForm(event)">
           <label for="username">Username:</label>
           <input
@@ -23,10 +24,8 @@ const LoginForm = ({ toggleForm }) => {
           <br/>
 
           <button type="submit" class="login-btn">Login</button>
-          <p>
-            Don't have an account?<br/>
-            <button type="button" onClick={toggleForm}>Switch to Signup</button>
-          </p>
+          <br/>
+          <button type="button" onClick={toggleForm}>Switch to Signup</button>
         </form>
     </div>
   );
