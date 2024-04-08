@@ -8,6 +8,12 @@ const LoginForm = ({ toggleForm }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const navigate = useNavigate();
   function handleAuthentication() {
+    if(username === '' || password === ''){
+      setAuthenticated(false);
+      setMessage("All fields are required!");  
+      return
+    }
+
     fetch("http://127.0.0.1:5000/login", {
       method: "POST",
       headers: {
