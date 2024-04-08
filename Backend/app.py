@@ -78,18 +78,15 @@ products = [
     },
 ]
 
-# users, with samples 
-users = [
-    {"username": "user1", "password": "pass1","email": "user1@mail.com"},
-    {"username": "user2", "password": "pass2","email": "user2@mail.com"},
-]
+# Users list. To be filled in from registering
+users = []
 
-#copied and pasted stuff here
-# Routes
+# Gets you user information. Just for debugging
 @app.route('/users', methods=['GET'])
 def get_persons():
     return jsonify(users)
 
+# Returns all products from the list above. Used for fetching to the products list
 @app.route('/products', methods=['GET'])
 def get_products():
     return jsonify(products)
@@ -98,22 +95,19 @@ def get_products():
 @app.route('/login', methods=['POST'])
 def authenticate_user():
     data = request.get_json()
+    
     entered_username = data.get('username')
     entered_password = data.get('password')
+
     # Check if the entered username and password match any user in the array
     for user in users:
         if user['username'] == entered_username and user['password'] == entered_password:
             return jsonify({"authenticated": True, "message": "Authentication successful"})
+    
+    # If it doesn't match with any user
     return jsonify({"authenticated": False, "message": "Authentication failed. Incorrect username or password."})
 
-# Adding a user
-@app.route('/users', methods=['POST'])
-def add_person():
-    new_person = request.get_json()
-    new_person['id'] = len(users) + 1
-    users.append(new_person)
-    return jsonify(new_person) # A function that converts a Python dictionary into a JSON response object.
-
+# Route to register a new user
 @app.route('/register', methods=['POST'])
 def register_user():
     data = request.json
@@ -128,10 +122,7 @@ def register_user():
 
     # Add user to the list
     users.append({'username': username, 'password': password, 'email': email})
-    
     return jsonify({"signedUp": True, 'message': 'User registered successfully'}), 201
-
-
 
 if __name__ == '__main__':
     app.run()
