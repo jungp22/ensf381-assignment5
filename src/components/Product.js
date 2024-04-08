@@ -16,7 +16,6 @@ const Product = ({ product, onAddToCart }) => {
 
   const handleAddToCart = () => {
     onAddToCart({ ...product, quantity });
-    console.log('Product added to cart:', product);
     setQuantity(quantity + 1);
   };
 
