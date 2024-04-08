@@ -35,6 +35,8 @@ const SignupForm = ({ toggleForm }) => {
         if (response.signedUp) {
           setSignedUp(true);
           setMessage("User signed up successfully!");
+          var inputs = document.querySelectorAll('input');
+          inputs.forEach(input => input.value = '');
         } else {
           setSignedUp(false);
           setMessage("Username is already taken!");
