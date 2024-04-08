@@ -49,25 +49,25 @@ const SignupForm = ({ toggleForm }) => {
       <p>{message}</p>
       <label>
         Username:
-        <input type="text" onChange={(e) => setUsername(e.target.value)} />
+        <input placeholder="Enter your username" type="text" onChange={(e) => setUsername(e.target.value)} />
       </label>
       <br />
       <label>
         Password:
-        <input type="password" onChange={(e) => setPassword(e.target.value)} />
+        <input placeholder="Enter your password" type="password" onChange={(e) => setPassword(e.target.value)} />
       </label>
       <br />
       <label>
         Confirm Password:
-        <input type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
+        <input placeholder="Confirm your password" type="password" onChange={(e) => setConfirmPassword(e.target.value)} />
       </label>
       <br />
       <label>
         Email:
-        <input type="email" onChange={(e) => setEmail(e.target.value)} />
+        <input placeholder="Enter your email" type="email" onChange={(e) => setEmail(e.target.value)} />
       </label>
       <br />
-      <button type="submit" class="login-btn" onClick={handleSignUp}>Login</button>
+      <button type="submit" class="signup-btn" onClick={handleSignUp}>Signup</button>
       <br/>
       <button type="button" onClick={toggleForm}>
         Switch to Login
