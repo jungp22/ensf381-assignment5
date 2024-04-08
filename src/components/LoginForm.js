@@ -26,7 +26,7 @@ const LoginForm = ({ toggleForm }) => {
         }
       })
       .catch((error) =>
-        setMessage("Authentication failed. Incorrect username or password.")
+        setMessage("An error occurred.")
       );
   }
   if (authenticated) {
@@ -37,7 +37,7 @@ const LoginForm = ({ toggleForm }) => {
   return (
     <div>
       <h1>Login</h1>
-      <p>{message}</p>
+      <p style={{color: "red"}}>{message}</p>
       <label>
         Username:
         <input type="text" onChange={(e) => setUsername(e.target.value)} />
