@@ -80,8 +80,8 @@ products = [
 
 # users, with samples 
 users = [
-    {"id": 1, "username": "user1", "password": "pass1"},
-    {"id": 2, "username": "user2", "password": "pass2"},
+    {"username": "user1", "password": "pass1","email": "user1@mail.com"},
+    {"username": "user2", "password": "pass2","email": "user2@mail.com"},
 ]
 
 #copied and pasted stuff here
@@ -89,6 +89,10 @@ users = [
 @app.route('/users', methods=['GET'])
 def get_persons():
     return jsonify(users)
+
+@app.route('/products', methods=['GET'])
+def get_products():
+    return jsonify(products)
 
 # Route to authenticate user
 @app.route('/login', methods=['POST'])

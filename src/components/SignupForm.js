@@ -6,12 +6,12 @@ const SignupForm = ({ toggleForm }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [Email, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [signedUp, setSignedUp] = useState(false);
 
   function handleSignUp() {
-    if(username === '' || password === '' || confirmPassword === ''|| Email === ''){
+    if(username === '' || password === '' || confirmPassword === ''|| email === ''){
       setSignedUp(false);
       setMessage("All fields are required!");  
       return
@@ -28,7 +28,7 @@ const SignupForm = ({ toggleForm }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: username, password: password }),
+      body: JSON.stringify({ username: username, password: password, email: email }),
     })
       .then((response) => response.json())
       .then((response) => {
