@@ -86,12 +86,12 @@ users = [
 
 #copied and pasted stuff here
 # Routes
-@app.route('/persons', methods=['GET'])
+@app.route('/users', methods=['GET'])
 def get_persons():
     return jsonify(users)
 
 # Route to authenticate user
-@app.route('/authenticate', methods=['POST'])
+@app.route('/login', methods=['POST'])
 def authenticate_user():
     data = request.get_json()
     entered_username = data.get('username')
@@ -103,12 +103,31 @@ def authenticate_user():
     return jsonify({"authenticated": False, "message": "Authentication failed. Incorrect username or password."})
 
 # Adding a user
-@app.route('/persons', methods=['POST'])
+@app.route('/users', methods=['POST'])
 def add_person():
     new_person = request.get_json()
     new_person['id'] = len(users) + 1
     users.append(new_person)
     return jsonify(new_person) # A function that converts a Python dictionary into a JSON response object.
+
+@app.route('/register', methods=['POST'])
+def register_user():
+    data = request.json
+    
+    username = data.get('username')
+    password = data.get('password')
+    email = data.get('email')
+
+    # Check if username already exists
+    if any(user['username'] == username for user in users):
+        return jsonify({'error': 'Username already exists'}), 400
+
+    # Add user to the list
+    users.append({'username': username, 'password': password, 'email': email})
+    
+    return jsonify({'message': 'User registered successfully'}), 201
+
+
 
 if __name__ == '__main__':
     app.run()

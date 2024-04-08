@@ -8,7 +8,7 @@ const LoginForm = ({ toggleForm }) => {
   const [authenticated, setAuthenticated] = useState(false);
   const navigate = useNavigate();
   function handleAuthentication() {
-    fetch("http://127.0.0.1:5000/authenticate", {
+    fetch("http://127.0.0.1:5000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,12 +31,13 @@ const LoginForm = ({ toggleForm }) => {
   }
   if (authenticated) {
     // Redirect to another page after successful authentication
-    navigate("/dashboard");
+    navigate("/products");
   }
 
   return (
     <div>
       <h1>Login</h1>
+      <p>{message}</p>
       <label>
         Username:
         <input type="text" onChange={(e) => setUsername(e.target.value)} />
@@ -48,8 +49,7 @@ const LoginForm = ({ toggleForm }) => {
       </label>
       <br />
       <button type="submit" class="login-btn" onClick={handleAuthentication}>Login</button>
-      <p>{message}</p>
-
+      <br/>
       <button type="button" onClick={toggleForm}>
         Switch to Signup
       </button>
