@@ -125,7 +125,7 @@ def register_user():
     # Add user to the list
     users.append({'username': username, 'password': password, 'email': email})
     
-    return jsonify({'message': 'User registered successfully'}), 201
+    return jsonify({"signedUp": True, 'message': 'User registered successfully'}), 201
 
 
 
