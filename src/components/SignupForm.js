@@ -9,14 +9,20 @@ const SignupForm = ({ toggleForm }) => {
   const [Email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [signedUp, setSignedUp] = useState(false);
-  const navigate = useNavigate();
 
   function handleSignUp() {
-    if(password !== confirmPassword){
+    if(username === '' || password === '' || confirmPassword === ''|| Email === ''){
       setSignedUp(false);
-      setMessage("Confirm password");  
+      setMessage("All fields are required!");  
       return
     }
+
+    else if(password !== confirmPassword){
+      setSignedUp(false);
+      setMessage("Passwords do not match!");  
+      return
+    }
+    
     fetch("http://127.0.0.1:5000/register", {
       method: "POST",
       headers: {
@@ -28,25 +34,21 @@ const SignupForm = ({ toggleForm }) => {
       .then((response) => {
         if (response.signedUp) {
           setSignedUp(true);
-          setMessage("Signup successful");
+          setMessage("User signed up successfully!");
         } else {
           setSignedUp(false);
-          setMessage("Signup failed. Someone already has this username.");
+          setMessage("Username is already taken!");
         }
       })
       .catch((error) =>
         setMessage("An error occurred.")
       );
   }
-  if (signedUp) {
-    // Redirect to another page after successful signup
-    navigate("/");
-  }
 
 
   return (
     <div>
-      <p>{message}</p>
+      <p style={{color: "red"}}>{message}</p>
       <label>
         Username:
         <input placeholder="Enter your username" type="text" onChange={(e) => setUsername(e.target.value)} />
