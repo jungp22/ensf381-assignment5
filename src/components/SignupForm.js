@@ -8,17 +8,15 @@ const SignupForm = ({ toggleForm }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [signedUp, setSignedUp] = useState(false);
 
   function handleSignUp() {
     if(username === '' || password === '' || confirmPassword === ''|| email === ''){
-      setSignedUp(false);
+      
       setMessage("All fields are required!");  
       return
     }
 
     else if(password !== confirmPassword){
-      setSignedUp(false);
       setMessage("Passwords do not match!");  
       return
     }
@@ -33,12 +31,11 @@ const SignupForm = ({ toggleForm }) => {
       .then((response) => response.json())
       .then((response) => {
         if (response.signedUp) {
-          setSignedUp(true);
           setMessage("User signed up successfully!");
           var inputs = document.querySelectorAll('input');
           inputs.forEach(input => input.value = '');
         } else {
-          setSignedUp(false);
+    
           setMessage("Username is already taken!");
         }
       })
