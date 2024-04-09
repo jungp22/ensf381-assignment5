@@ -4,7 +4,7 @@ Created by:
 Jung-Hwan Park  -   30146353  
 Tanis Smith     -   30110039  
 
-From directory ./my-ecommerce-app, run "npm install" to obtain node_modules folder,
+From the assignment's main directory, run "npm install" to obtain node_modules folder,
 may need to run "npm install react-router-dom --save" to obtain react-router-dom required to run
 the app. 
 - https://stackoverflow.com/questions/53914013/failed-to-compile-module-not-found-cant-resolve-react-router-dom
