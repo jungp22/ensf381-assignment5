@@ -4,7 +4,7 @@ import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import Footer from './Footer';
 
-const LoginPage = () => {
+const LoginPage = ({setAuthenticated}) => {
   const [showLoginForm, setShowLoginForm] = useState(true);
 
   const toggleForm = () => {
@@ -14,7 +14,7 @@ const LoginPage = () => {
   return (
     <div>
         <Header />
-        {showLoginForm ? <LoginForm toggleForm={toggleForm} /> : <SignupForm toggleForm={toggleForm} />}
+        {showLoginForm ? <LoginForm toggleForm={toggleForm} setAuthenticated = {setAuthenticated}/> : <SignupForm toggleForm={toggleForm} />}
         <Footer />
     </div>
   );

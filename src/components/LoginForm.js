@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-const LoginForm = ({ toggleForm }) => {
+const LoginForm = ({setAuthenticated,toggleForm }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
-  const navigate = useNavigate();
   function handleAuthentication() {
     if(username === '' || password === ''){
       setAuthenticated(false);
@@ -34,10 +31,6 @@ const LoginForm = ({ toggleForm }) => {
       .catch((error) =>
         setMessage("An error occurred.")
       );
-  }
-  if (authenticated) {
-    // Redirect to another page after successful authentication
-    navigate("/products");
   }
 
   return (
