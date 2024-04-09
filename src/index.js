@@ -1,3 +1,9 @@
+/*
+Created by: 
+Jung-Hwan Park  -   30146353
+Tanis Smith     -   30110039
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
